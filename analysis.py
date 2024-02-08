@@ -5,7 +5,7 @@ import json
 
 today = datetime.date.today()
 read_file_name = "content/" + str(today) + ".html"
-write_file_name = str(today) + ".json"
+write_file_name = "json/" + str(today) + ".json"
 
 html = ""
 with open(read_file_name, "r", encoding='utf-8') as f:
@@ -46,7 +46,7 @@ for i in range(size):
     
     obj['primary_subject'] = primary_subject_span.string
     
-    obj['abstract'] = abstract_p.text.strip().replace("\n", "")
+    obj['abstract'] = abstract_p.text.strip().replace("\n", " ")
     objs.append(obj)
 
 with open(write_file_name, "w", encoding='utf-8') as f:
